@@ -1,0 +1,20 @@
+{
+  "id": "redis",
+  "desiredState": {
+    "manifest": {
+      "version": "v1beta1",
+      "id": "redis",
+      "containers": [{
+        "name": "redis",
+        "image": "dockerfile/redis",
+        "ports": [{
+          "containerPort": 6379,
+          "hostPort": 6379 
+        }]
+      }]
+    }
+  },
+  "labels": {
+    "name": "redis"
+  }
+}

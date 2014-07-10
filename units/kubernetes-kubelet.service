@@ -1,0 +1,13 @@
+[Unit]
+Description=Kubernetes Kubelet
+
+[Service]
+ExecStart=/opt/kubernetes/bin/kubelet \
+  --etcd_servers=http://127.0.0.1:4001 \
+  --hostname_override=127.0.0.1 \
+  --address=127.0.0.1 \
+  --port=10250 \
+  --logtostderr
+
+[Install]
+WantedBy=multi-user.target

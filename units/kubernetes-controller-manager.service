@@ -1,0 +1,11 @@
+[Unit]
+Description=Kubernetes Controller Manager
+
+[Service]
+ExecStart=/opt/kubernetes/bin/controller-manager \
+  --etcd_servers=http://127.0.0.1:4001 \
+  --master=127.0.0.1:8080 \
+  --logtostderr
+
+[Install]
+WantedBy=multi-user.target
