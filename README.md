@@ -41,6 +41,6 @@ sudo systemctl start kubernetes-proxy
 ### Run the pod
 
 ```
-kubecfg -h http://127.0.0.1:8080 -c pods/pod.json create /pods
-kubecfg -h http://127.0.0.1:8080 list /pods
+/opt/kubernetes/bin/kubecfg -h http://127.0.0.1:8080 -c pods/pod.json create /pods
+/opt/kubernetes/bin/kubecfg -h http://127.0.0.1:8080 list /pods
 ```
