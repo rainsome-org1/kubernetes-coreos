@@ -1,17 +1,19 @@
 # Kubernetes CoreOS
 
-## Install Linux binaries
+This how-to guide demostrates how to run [Google Kubernetes](https://github.com/GoogleCloudPlatform/kubernetes) on [CoreOS](https://coreos.com)
+
+### Install Linux binaries
 
 ```
 sudo mkdir -p /opt/kubernetes/bin
 cd /opt/kubernetes/bin
-wget https://github.com/kelseyhightower/kubernetes-coreos/releases/download/v0.0.1/kubernetes-coreos.tar.gz | tar -x -
+wget https://github.com/kelseyhightower/kubernetes-coreos/releases/download/v0.0.1/kubernetes-coreos.tar.gz
 sudo tar -xvf kubernetes-coreos.tar.gz
 sudo chmod +x apiserver  controller-manager  kubecfg  kubelet proxy
 sudo rm kubernetes-coreos.tar.gz
 ```
 
-### Add the systemd units
+### Add the Kubernetes systemd units
 
 ```
 cd $HOME
@@ -28,10 +30,15 @@ sudo systemctl start kubernetes-kubelet
 sudo systemctl start kubernetes-proxy
 ```
 
-### Run the pod
+### Run the Redis pod
 
 ```
 /opt/kubernetes/bin/kubecfg -h http://127.0.0.1:8080 -c kubernetes-coreos/pods/redis.json create /pods
+```
+
+#### List running pods
+
+```
 /opt/kubernetes/bin/kubecfg -h http://127.0.0.1:8080 list /pods
 ```
 
